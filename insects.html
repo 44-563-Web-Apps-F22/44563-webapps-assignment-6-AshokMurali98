@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Donga's Insects</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="p-3 mb-2 bg-success text-white border py-1 my-1">
+            <h2 class="text-center">Insect by Ashok Murali</h2>
+        
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="container">
+        <img id="insectsImage" src="Neuroptera.jpg" width="100" height="100" onclick="swapImage()">
+    </div>
+
+    <script>
+        var useImage = 1;
+        function swapImage() {
+            var insectsImage = document.getElementById('insectsImage');
+            switch (useImage) {
+                case 1:
+                    insectsImage.src = "Dragonfly.jpg";
+                    useImage = 2;
+                    break;
+                case 2:
+                    insectsImage.src = "grasshopper.jpg";
+                    useImage = 3;
+                    break;
+                case 3:
+                    insectsImage.src = "Neuroptera.jpg";
+                    useImage = 1;
+                    break;
+                default:
+                    insectsImage.src = "Neuroptera.jpg";
+                    useImage = 1;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
