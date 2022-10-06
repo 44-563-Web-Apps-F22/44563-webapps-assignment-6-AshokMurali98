@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guess Musician !!</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container bg-dark text-white border py-2 my-3">
+            <h1 class="text-center">Musician guess by Ashok Murali</h1>
+        
+        </div>
+    </div>
+<br>
+    <h3>Getting input</h3>
+    <div class="container-fluid">
+        <div class="row g-2">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text">
+
+                        <form id="musicianForm">
+                            <label for="secretInput">Enter the Secret Musician Name </label>
+                            <input type="password" id="secretInput" name="secretInput" value="John Lennon" min=10 max=50
+                                step=2 value=30 class="form-control"><br>
+
+
+                            <label for="inputMusician">Guess the musician</label>
+                            <input type="text" id="inputMusician" name="inputMusician" class="form-control"> <br>
+
+                            <input type="button" onclick="checkGuess()" value="Check the Guess"
+                                class="btn btn-success btn-lg"> <br> <br>
+
+
+                </form>
+                    </span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <p id="result"> </p>
+
+    
+    <script>
+
+        var correct = 0
+        var wrong = 0
+        var wrongInRow=0;
+        function checkGuess() {
+            console.log("Getting form values")
+            musicianName = document.getElementById("secretInput").value
+            guessName = document.getElementById("inputMusician").value
+            // confirmed = confirm("Are these the values? "+musicianName+" and "+guessName)
+
+            const result = musicianName === guessName;
+
+            out = document.getElementById("result")
+
+            if (result) {
+                alert("You got it right")
+
+                correct += 1;
+                wrongInRow+=0;
+            } else {
+                alert("Wrong Musician");
+                wrong += 1;
+                wrongInRow +=1;
+            }
+
+            if(wrongInRow>=3) {
+                alert("Sorry, Game Over.");
+                wrongInRow=0; 
+                wrong=0;
+                correct=0;
+                document.getElementById("musicianForm").reset();
+            }
+            
+            out.innerHTML = "Result - Correct: " + correct + " Wrong: " + wrong;
+        }
+    </script>
+    
+
+</body>
+
+</html>
